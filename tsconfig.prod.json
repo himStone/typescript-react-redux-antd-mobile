@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "moduleResolution": "node",
+        "target": "es5",
+        "sourceMap": true,
+        "jsx": "react",
+        "types": ["node"],
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

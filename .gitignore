@@ -1,0 +1,7 @@
+c.
+.DS_STORE
+
+# Node.
+node_modules
+static
+npm-debug.log

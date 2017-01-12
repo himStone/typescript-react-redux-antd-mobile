@@ -1,14 +1,14 @@
 {
-  "name": "typescript-react-redux-antd",
+  "name": "typescript-react-redux-antd-mobile",
   "version": "1.0.0",
-  "description": "typescript-react-redux-antd",
+  "description": "typescript-react-redux-antd-mobile",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev-app-all",
-    "dev-app": "npm run clean-cache && npm run build-app-dev",
-    "dev-app-all": "npm run clean-cache && npm run build-dev-bundle && npm run build-app-dev",
-    "publish-app": "npm run clean-dist &&  npm run build-app-pro",
-    "publish-app-all": "npm run clean-dist && npm run build-pro-bundle && npm run build-app-pro",
+    "start": "npm run dev-all",
+    "dev": "npm run clean-cache && npm run build-app-dev",
+    "dev-all": "npm run clean-cache && npm run build-dev-bundle && npm run build-app-dev",
+    "publish": "npm run clean-dist &&  npm run build-app-pro",
+    "publish-all": "npm run clean-dist && npm run build-pro-bundle && npm run build-app-pro",
     "build-app-dev": "NODE_ENV=development node webpack/dev.config.js",
     "build-app-pro": "NODE_ENV=production node webpack/prod.config.js",
     "build-dev-bundle": "NODE_ENV=development node webpack/webpack.dll.config.js",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bccsafe/typescript-react-redux-antd.git"
+    "url": "git+https://github.com/bccsafe/typescript-react-redux-antd-mobile.git"
   },
   "author": "bccsafe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bccsafe/typescript-react-redux-antd/issues"
+    "url": "https://github.com/bccsafe/typescript-react-redux-antd-mobile/issues"
   },
-  "homepage": "https://github.com/bccsafe/typescript-react-redux-antd#readme",
+  "homepage": "https://github.com/bccsafe/typescript-react-redux-antd-mobile#readme",
   "devDependencies": {
     "@types/history": "2.0.39",
     "@types/node": "^6.0.45",
@@ -65,7 +65,7 @@
     "react-dom": "~15.4.1",
     "react-hot-loader": "^3.0.0-beta.5",
     "react-redux": "^4.4.5",
-    "react-router": "^2.8.1",
+    "react-router": "^3.0.0",
     "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
     "redux-actions": "^0.12.0",

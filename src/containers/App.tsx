@@ -9,19 +9,14 @@ import configureStore from 'redux/store/configureStore'
 
 import Home from "./Home"
 
-declare var module: { hot: any };
-declare var require: any;
-
 const routes = {
-  childRoutes: [ {
-    path: '/',
-    childRoutes: [
-            {
-            path: 'Home',
-            component: require('./Home')
-        }
-    ]
-  } ]
+    childRoutes: [ {
+        path: '/',
+        indexRoute: { onEnter: (nextState: any, replace: any) => replace('/home') },
+        childRoutes: [
+            require('./Home/router'),
+        ]
+    } ]
 }
 
 const store = configureStore();

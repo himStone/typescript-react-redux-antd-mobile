@@ -1,30 +1,46 @@
 import * as React from "react"
-import { Button, Accordion, List, TextareaItem } from 'antd-mobile'
+import { Link } from 'react-router'
+import classNames from 'classnames'
+
+import "antd-mobile/lib/tab-bar/style/css"
+// import { TabBar } from 'antd-mobile' 
+// typescript官方声明有问题，暂时不用，只用样式
 
 import './index.scss'
 
 export default class Home extends React.Component<any, any> {
 
-     
-
+    private tabBarConfig = [
+        {name: "主页", prefixCls: "home-content", router: "home/homeContent", imgPrefixCls: "homeContentIcon"},
+        {name: "客户库", prefixCls: "", router: "home/customerList", imgPrefixCls: "customsIcon"},
+        {name: "我的", prefixCls: "", router: "home/myInfo", imgPrefixCls: "myInfoIcon"}
+    ]
+    
 	render() {
-        return (<div>
-        <h1>This is antd-mobile demo!</h1>
-        <Button loading disabled size="small">Start</Button>
-        <TextareaItem maxLength={2} count={3} />
-        <Accordion>
-            <Accordion.Panel header="标题一">
-                <List>
-                <List.Item>子内容一</List.Item>
-                <List.Item>子内容二</List.Item>
-                <List.Item>子内容三</List.Item>
-                </List>
-            </Accordion.Panel>
-            <Accordion.Panel header="标题二" className="pad">this is panel content2 or other</Accordion.Panel>
-            <Accordion.Panel header="标题三" className="pad">
-                文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本
-            </Accordion.Panel>
-            </Accordion>
-        </div>);
+        
+        return (
+             <div>
+                <div className="am-tab-bar-bar home-bar">
+                    {
+                        this.tabBarConfig.map((item, index) => (
+                            <Link key={index} 
+                                activeClassName="active" 
+                                to={item.router}
+                                className={classNames("am-tab-bar-tab-active am-tab-bar-tab", item.prefixCls)}>
+                                <div>
+                                    <div className="am-tab-bar-tab-icon">
+                                        <span className="am-tab-bar-tab-badge am-badge">
+                                            <div className={classNames("am-tab-bar-tab-image home-bar-image", item.imgPrefixCls)} ></div>
+                                        </span>
+                                    </div>
+                                    <p className="am-tab-bar-tab-title">{item.name}</p>
+                                </div>
+                            </Link> 
+                        ))
+                    }                    
+                </div>
+                {this.props.children}              
+            </div>
+        );
     }
 }

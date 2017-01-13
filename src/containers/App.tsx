@@ -4,10 +4,10 @@ import { Router, useRouterHistory } from 'react-router'
 import { createHistory } from 'history'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
-
 import configureStore from 'redux/store/configureStore'
-
 import Home from "./Home"
+
+import 'common/styles/common.scss'
 
 const routes = {
     childRoutes: [ {

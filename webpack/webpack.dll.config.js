@@ -20,7 +20,8 @@ const config = {
             'react-router', 
             'react-router-redux', 
             'redux',
-            'redux-thunk'
+            'redux-thunk',
+            'classnames'
             ]
     },
     output: {

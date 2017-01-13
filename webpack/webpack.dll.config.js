@@ -21,7 +21,11 @@ const config = {
             'react-router-redux', 
             'redux',
             'redux-thunk',
-            'classnames'
+            'classnames',
+            'reqwest',
+            'react-tap-event-plugin',
+            'es6-promise',
+            'immutable',
             ]
     },
     output: {

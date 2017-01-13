@@ -1,43 +1,30 @@
 import * as React from "react"
-import { connect } from 'react-redux'
-
-import { getHomeState } from 'redux/reducers/home'
-import { addToList } from 'redux/actions/home'
-import { Item } from 'redux/modals/home'
+import { Button, Accordion, List, TextareaItem } from 'antd-mobile'
 
 import './index.scss'
 
-interface HomeProps {
-    home: Item[],
-    addToList: Function
-}
+export default class Home extends React.Component<any, any> {
 
-class Home extends React.Component<any, any> {
-
-    private onBtnClick = () => {
-        this.props.addToList("add text " + this.props.home.length);
-    }
+     
 
 	render() {
-        const { home } = this.props;
-        
-        return (
-            <div>
-                <h1>Home</h1>
-                <button onClick={this.onBtnClick}>Add</button>
-                <ul>
-                    {
-                        home.map((item: Item, index: number) => (<li key={index}>{item.text}</li>))
-                    }
-                </ul>
-            </div>
-        )
+        return (<div>
+        <h1>This is antd-mobile demo!</h1>
+        <Button loading disabled size="small">Start</Button>
+        <TextareaItem maxLength={2} count={3} />
+        <Accordion>
+            <Accordion.Panel header="标题一">
+                <List>
+                <List.Item>子内容一</List.Item>
+                <List.Item>子内容二</List.Item>
+                <List.Item>子内容三</List.Item>
+                </List>
+            </Accordion.Panel>
+            <Accordion.Panel header="标题二" className="pad">this is panel content2 or other</Accordion.Panel>
+            <Accordion.Panel header="标题三" className="pad">
+                文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本
+            </Accordion.Panel>
+            </Accordion>
+        </div>);
     }
 }
-
-const mapStateToProps = getHomeState
-
-export default connect(
-	mapStateToProps,
-	{ addToList }
-)(Home)

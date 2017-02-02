@@ -8,6 +8,7 @@ var webpack = require('webpack'),
 config.output.publicPath = '/static/dist/app/';
 config.devtool = false;
 config.module.loaders[0].loaders.unshift('ts-loader?configFileName=tsconfig.prod.json');
+config.module.loaders[0].loaders.unshift('babel');
 config.module.loaders[1].loader = ExtractTextPlugin.extract("style-loader", ['css-loader?-autoprefixer', 'postcss-loader', 'sass-loader']);
 
 config.plugins.push(

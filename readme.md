@@ -6,7 +6,7 @@ an example to use antd-mobile in typescript
 
 * React
 * TypeScript 2
-* Webpack
+* Webpack 2
 * Redux
 * PostCSS
 * antd-mobile
@@ -22,3 +22,10 @@ npm install
 npm start
 ```
 **Step 3.** Go to `http://localhost:9090/home` and test it
+
+## Note
+* node-sass install failed ?
+```
+npm install --save-dev node-sass@3.10.1 --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist --sass-binary-site=http://npm.taobao.org/mirrors/node-sass
+npm install
+```

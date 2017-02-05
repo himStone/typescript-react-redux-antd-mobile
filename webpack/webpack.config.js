@@ -29,41 +29,45 @@ module.exports = {
     	chunkFilename: '[name]-[chunkhash].js'
     },
     module: {
-        loaders: [
+        rules: [
             { 
                 test: /\.ts(x?)$/,
-                loaders: []
+                use: [
+                    {
+                        loader: "babel-loader"
+                    },
+                    {
+                        loader: "ts-loader"
+                    }
+                ]
             },
             {
-                test: /\.scss|.css$/,                
-                loader: ''
+                test: /\.scss|.css$/,
+                use: []
             },
             {
                 test: /\.(jpg|jpeg|png|gif|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,        
-                loader: 'url-loader?limit=8192'        
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]        
             }
         ]
     },
-    postcss: function () {
-        return [
-            autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
-            pxtorem({
-                rootValue: 100,
-                propWhiteList: [],
-            }),
-        ];
-    },
-    sassLoader: {
-        includePaths: [SRC_PATH]
-    },
     resolve: {
-        root: [SRC_PATH],
+        modules: [
+            SRC_PATH,
+            'node_modules'
+        ],
         alias: {
             'img': IMG_PATH,
             'src': SRC_PATH
         },
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],        
-        modulesDirectories: ['src', 'node_modules']
+        extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -87,10 +91,30 @@ module.exports = {
                 removeComments: true
             }
         }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.DllReferencePlugin({
             context: '.',
             manifest: __DEV__ ? require('../static/cache/bundle-manifest.json') : require('../static/dist/lib/bundle-manifest.json')
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                context: SRC_PATH,
+                output: {
+                    path: DIST_PATH,
+                    publicPath: '',
+                    filename: '[name]-[hash].js',
+                    chunkFilename: '[name]-[chunkhash].js'
+                },
+                postcss: [
+                    autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
+                    pxtorem({
+                        rootValue: 100,
+                        propWhiteList: [],
+                    }),
+                ],
+                sassLoader: {
+                    includePaths: [SRC_PATH]
+                },
+            }
         })
     ]
 };

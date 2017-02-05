@@ -13,8 +13,7 @@ const config = {
     entry: {
         bundle: [
             'history',
-            'react', 
-            'react-router', 
+            'react',
             'react-dom', 
             'react-redux', 
             'react-router', 

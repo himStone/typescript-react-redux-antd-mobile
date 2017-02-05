@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "removeComments": true,
-        "moduleResolution": "node",
-        "target": "es5",
         "sourceMap": true,
+        "moduleResolution": "node",
+        "target": "es6",
         "jsx": "react",
         "types": ["node"],
+        "baseUrl": "./src",
         "allowSyntheticDefaultImports": true
     },
     "exclude": [

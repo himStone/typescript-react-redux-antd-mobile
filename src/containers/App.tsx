@@ -5,9 +5,11 @@ import { createHistory } from 'history'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from 'redux/store/configureStore'
-import Home from "./Home"
+import { polyfill } from 'es6-promise'
 
 import 'common/styles/common.scss'
+
+polyfill();
 
 const routes = {
     childRoutes: [ {

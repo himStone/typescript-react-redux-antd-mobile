@@ -16,9 +16,15 @@ config.entry.app.unshift('react-hot-loader/patch');
 
 
 config.output.publicPath = _localPublicPath;
-config.module.loaders[0].loaders.unshift('ts-loader?configFileName=tsconfig.json');
-config.module.loaders[0].loaders.unshift('babel?cacheDirectory=' + CACHE_PATH);
-config.module.loaders[1].loader = 'style-loader!css-loader?sourceMap!postcss-loader!sass-loader?sourceMap=true';
+
+config.module.rules[0].use[0].options = {cacheDirectory: CACHE_PATH};
+config.module.rules[0].use[1].options = {configFileName: "tsconfig.json"};
+config.module.rules[1].use = [
+    "style-loader", 
+    "css-loader?sourceMap",
+    "postcss-loader",
+    "sass-loader?sourceMap"
+];
 config.devtool = 'cheap-module-eval-source-map';
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
  

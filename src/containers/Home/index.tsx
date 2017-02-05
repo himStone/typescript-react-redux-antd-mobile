@@ -3,9 +3,7 @@ import { Link } from 'react-router'
 import classNames from 'classnames'
 
 import "antd-mobile/lib/tab-bar/style/css"
-// import { TabBar } from 'antd-mobile' 
-// typescript官方声明有问题，暂时不用，只用样式
-
+//只用样式
 import './index.scss'
 
 export default class Home extends React.Component<any, any> {
@@ -17,7 +15,6 @@ export default class Home extends React.Component<any, any> {
     ]
     
 	render() {
-        
         return (
              <div>
                 <div className="am-tab-bar-bar home-bar">

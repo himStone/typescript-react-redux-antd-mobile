@@ -6,25 +6,26 @@ var webpack = require('webpack'),
 
  
 config.output.publicPath = '/static/dist/app/';
-config.devtool = false;
-config.module.loaders[0].loaders.unshift('ts-loader?configFileName=tsconfig.prod.json');
-config.module.loaders[0].loaders.unshift('babel');
-config.module.loaders[1].loader = ExtractTextPlugin.extract("style-loader", ['css-loader?-autoprefixer', 'postcss-loader', 'sass-loader']);
+config.module.rules[0].use[1].options = {configFileName: "tsconfig.prod.json"};
+config.module.rules[1].use = ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: "css-loader!postcss-loader!sass-loader",
+});
 
 config.plugins.push(
     new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true,
         output: {
             comments: false,
-        },
-        compress: {
-            warnings: false
         }
     })
 );
 config.plugins.push(
-    new ExtractTextPlugin("[name]-[hash].css")
+    new ExtractTextPlugin({ 
+        filename: "[name]-[hash].css",
+        allChunks: true 
+    })
 );
-
 
 var compiler = webpack(config);
 

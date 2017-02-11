@@ -13,7 +13,7 @@ an example to use antd-mobile in typescript
 
 ## Getting Started
 
-**Step 1.** Make sure that you have `Node.js`, `TypeScript 2`, `sass` installed global on your machine.
+**Step 1.** Make sure that you have `Node.js`, `Webpack 2`, `TypeScript 2`, `sass` installed global on your machine.
 
 **Step 2.** Clone this repository to bootstrap your project
 

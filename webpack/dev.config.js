@@ -25,15 +25,15 @@ config.module.rules[1].use = [
     "postcss-loader",
     "sass-loader?sourceMap"
 ];
-config.devtool = 'cheap-module-eval-source-map';
+config.devtool = 'source-map';
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
  
 
 new WebpackDevServer(webpack(config), {
-        hot: true,
-        inline: true,
-        compress: true,
-        stats: {
+    hot: true,
+    inline: true,
+    compress: true,
+    stats: {
         chunks: false,
         children: false,
         colors: true,

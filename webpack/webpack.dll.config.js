@@ -54,9 +54,6 @@ if (__DEV__) {
         new webpack.optimize.UglifyJsPlugin({
             output: {
                 comments: false,
-            },
-            compress: {
-                warnings: false
             }
         })
     );

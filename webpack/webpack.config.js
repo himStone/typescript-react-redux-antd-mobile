@@ -46,7 +46,7 @@ module.exports = {
                 use: []
             },
             {
-                test: /\.(jpg|jpeg|png|gif|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,        
+                test: /\.(jpg|jpeg|png|gif)(\?[a-z0-9=&.]+)?$/,        
                 use: [
                     {
                         loader: "url-loader",
@@ -55,6 +55,10 @@ module.exports = {
                         }
                     }
                 ]        
+            },
+            {
+                test: /\.svg$/,        
+                use: 'svg-sprite-loader'
             }
         ]
     },

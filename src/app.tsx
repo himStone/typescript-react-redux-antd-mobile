@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 const { AppContainer } = require('react-hot-loader') 
 
-import App from "./containers/App"
+import Root from "./containers/Root"
 
 declare var module: { hot: any };
 declare var require: any;
@@ -12,14 +12,14 @@ const root = document.getElementById('app')
 
 render(
     <AppContainer>
-        <App/>           
+        <Root/>           
     </AppContainer>, 
     root
 );
 
 if (module.hot) {
-    module.hot.accept('./containers/App', () => {
-        const NextApp = require('./containers/App').default;
+    module.hot.accept('./containers/Root', () => {
+        const NextApp = require('./containers/Root').default;
 
         render(
             <AppContainer>

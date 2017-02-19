@@ -30,7 +30,7 @@ const history = useRouterHistory(createHistory)({
 })
 const _history = syncHistoryWithStore(history, store)
 
-export default class App extends React.Component<any, any> {
+export default class Root extends React.Component<any, any> {
 
     constructor() {
         super()

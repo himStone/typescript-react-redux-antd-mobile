@@ -6,10 +6,12 @@ import { Provider } from 'react-redux'
 import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from 'redux/store/configureStore'
 import { polyfill } from 'es6-promise'
+import initReactFastclick from 'react-fastclick'
 
 import 'common/styles/common.scss'
 
 polyfill();
+initReactFastclick();
 
 const routes = {
     childRoutes: [ {

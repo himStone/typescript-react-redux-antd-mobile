@@ -1,14 +1,12 @@
-import * as React from "react"
-import { render } from 'react-dom'
+import * as React from 'react';
+import { render } from 'react-dom';
+import AppContainer from 'react-hot-loader';
+import Root from './containers/Root';
 
-const { AppContainer } = require('react-hot-loader') 
-
-import Root from "./containers/Root"
-
+//dev module.hot
 declare var module: { hot: any };
-declare var require: any;
 
-const root = document.getElementById('app') 
+const root = document.getElementById('app');
 
 render(
     <AppContainer>

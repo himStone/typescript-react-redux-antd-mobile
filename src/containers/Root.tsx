@@ -1,55 +1,20 @@
 import * as React from "react"
 import { render } from 'react-dom'
-import { Router, useRouterHistory } from 'react-router'
-import { createHistory } from 'history'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { syncHistoryWithStore } from 'react-router-redux'
-import configureStore from 'redux/store/configureStore'
-import { polyfill } from 'es6-promise'
-import initReactFastclick from 'react-fastclick'
+import Home from './Home/'
+import MyInfo from './MyInfo/'
 
 import 'common/styles/common.scss'
 
-polyfill();
-initReactFastclick();
-
-const routes = {
-    childRoutes: [ {
-        path: '/',
-        indexRoute: { onEnter: (nextState: any, replace: any) => replace('/home') },
-        childRoutes: [
-            require('./Home/router'),
-        ]
-    } ]
-}
-
-const store = configureStore();
-
-const history = useRouterHistory(createHistory)({
-    basename: '/'
-})
-const _history = syncHistoryWithStore(history, store)
-
-export default class Root extends React.Component<any, any> {
-
-    constructor() {
-        super()
-    }
-
-    render() {
-        return (
-            <Provider store={store}>
-                { 
-                    false && process.env.NODE_ENV == "development" ?
-                        <div>
-                            <Router history={_history} routes={routes}/>
-                            {React.createElement(require("containers/DevTools"))}
-                        </div>
-                    : (
-                        <Router history={history} routes={routes}/>
-                    )
-                }
-            </Provider>
-        )
-    }
-}
+export default ({ store }) => (
+  <BrowserRouter>
+    <Provider store={store}>
+      <Switch>
+        <Route path="/" exact={true} component={Home}/>
+        <Route path="/home" component={Home}/>
+        <Route path="/myInfo" component={MyInfo}/>
+      </Switch>
+    </Provider>
+  </BrowserRouter>
+);

@@ -12,17 +12,16 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 const config = {
     entry: {
         bundle: [
-            'history',
             'react',
             'react-dom', 
             'react-redux', 
             'react-router', 
+            'react-router-dom',
             'react-router-redux', 
             'redux',
             'redux-thunk',
             'classnames',
             'reqwest',
-            'react-tap-event-plugin',
             'es6-promise',
             'immutable',
             ]

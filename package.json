@@ -15,7 +15,6 @@
     "build-pro-bundle": "NODE_ENV=production node webpack/webpack.dll.config.js",
     "clean-dist": "rm -r -f static/dist/*",
     "clean-cache": "rm -r -f static/cache/*.json.gz",
-    "lint": "eslint src/** --ext '.ts,.tsx'",
     "tslint": "tslint --project ."
   },
   "repository": {
@@ -53,7 +52,6 @@
     "assets-webpack-plugin": "^3.5.0",
     "autoprefixer": "~6.5.4",
     "babel-core": "~6.20.0",
-    "babel-eslint": "^7.1.1",
     "babel-loader": "~6.2.9",
     "babel-plugin-import": "^1.1.0",
     "babel-plugin-transform-runtime": "^6.15.0",
@@ -64,11 +62,6 @@
     "classnames": "^2.2.5",
     "css-loader": "~0.26.1",
     "es6-promise": "^4.0.5",
-    "eslint": "^3.16.1",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.22.0",

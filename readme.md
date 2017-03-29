@@ -5,6 +5,7 @@ an example to use antd-mobile in typescript
 ## Libraries
 
 * React
+* React Router 4
 * TypeScript 2
 * Webpack 2
 * Redux

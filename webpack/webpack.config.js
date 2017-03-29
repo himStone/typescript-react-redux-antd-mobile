@@ -9,7 +9,7 @@ const path = require('path'),
 const SRC_PATH = path.join(__dirname, '../src'),
     STATIC_PATH = path.join(__dirname, '../static'),
     DIST_PATH = path.join(__dirname, '../static/dist/app'),
-    IMG_PATH = path.join(__dirname, '../src/img');
+    RESOURCE_PATH = path.join(__dirname, '../src/resource');
 
 const __DEV__ = process.env.NODE_ENV !== 'production';
 
@@ -68,7 +68,7 @@ module.exports = {
             'node_modules'
         ],
         alias: {
-            'img': IMG_PATH,
+            'resource': RESOURCE_PATH,
             'src': SRC_PATH
         },
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]

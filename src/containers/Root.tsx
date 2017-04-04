@@ -3,9 +3,7 @@ import { render } from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import Home from './Home/'
-import MyInfo from './MyInfo/'
-
-import 'common/styles/common.scss'
+import CustomTheme from './CustomTheme/'
 
 export default ({ store }) => (
   <BrowserRouter>
@@ -13,7 +11,7 @@ export default ({ store }) => (
       <Switch>
         <Route path="/" exact={true} component={Home}/>
         <Route path="/home" component={Home}/>
-        <Route path="/myInfo" component={MyInfo}/>
+        <Route path="/customTheme" component={CustomTheme}/>
       </Switch>
     </Provider>
   </BrowserRouter>

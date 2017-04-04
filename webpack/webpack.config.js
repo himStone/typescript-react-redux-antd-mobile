@@ -42,7 +42,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.scss|.css$/,
+                test: /\.less|.css$/,
                 use: []
             },
             {
@@ -114,10 +114,7 @@ module.exports = {
                         rootValue: 100,
                         propWhiteList: [],
                     }),
-                ],
-                sassLoader: {
-                    includePaths: [SRC_PATH]
-                },
+                ]
             }
         })
     ]

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import classNames from 'classnames'
 import { List } from 'antd-mobile'
 
-import './index.scss'
+import './index.less'
 
 const Item = List.Item;
 const Brief = Item.Brief;

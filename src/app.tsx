@@ -6,7 +6,7 @@ import configureStore from 'redux/store/configureStore';
 import { polyfill } from 'es6-promise'
 import initReactFastclick from 'react-fastclick'
 
-import 'common/styles/common.scss'
+import 'common/styles/common.less'
 
 //dev module.hot
 declare var module: { hot: any };

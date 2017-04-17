@@ -5,17 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev-all",
-    "dev": "npm run clean-dev-cache && npm run build-app-dev",
-    "dev-all": "npm run clean-dev-all && npm run build-dev-bundle && npm run build-app-dev",
-    "publish": "npm run clean-dist && npm run build-pro-bundle && npm run build-app-pro",
+    "dev": "npm run build-app-dev",
+    "dev-all": "node clean.js cache && npm run build-dev-bundle && npm run build-app-dev",
+    "publish": "node clean.js dist && npm run build-pro-bundle && npm run build-app-pro",
     "build-app-dev": "cross-env NODE_ENV=development node webpack/dev.config.js",
     "build-app-pro": "cross-env NODE_ENV=production node webpack/prod.config.js",
     "build-dev-bundle": "cross-env NODE_ENV=development node webpack/webpack.dll.config.js",
     "build-pro-bundle": "cross-env NODE_ENV=production node webpack/webpack.dll.config.js",
-    "clean-dist": "node clean.js -dist",
-    "clean-dev-cache": "node clean.js -dev-cache",
-    "clean-dev-bundle": "node clean.js -dev-bundle",
-    "clean-dev-all": "node clean.js -dev-all",
     "tslint": "tslint --project ."
   },
   "repository": {
@@ -85,6 +81,7 @@
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
     "reqwest": "^2.0.5",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.13.1",
     "svg-sprite-loader": "^0.3.0",
     "ts-loader": "^1.3.2",

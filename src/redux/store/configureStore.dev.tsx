@@ -1,17 +1,16 @@
-import { Store, createStore, applyMiddleware, compose } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import createLogger from 'redux-logger'
-import { Map, Iterable } from 'immutable'
-//import api from '../middleware/api'
-import rootReducer from '../reducers'
-import DevTools from 'containers/DevTools'
+import { Store, createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import { Iterable } from 'immutable';
+// import api from '../middleware/api'
+import rootReducer from '../reducers';
+import DevTools from 'containers/DevTools';
 
 declare var module: { hot: any };
 declare var require: any;
 
 const stateTransformer = (state) => {
-  if (Iterable.isIterable(state)) return state.toJS();
-  else return state;
+    return Iterable.isIterable(state) ? state.toJS() : state;
 };
 
 export default function configureStore() {
@@ -19,17 +18,17 @@ export default function configureStore() {
         rootReducer,
         compose(
             applyMiddleware(thunkMiddleware, createLogger({stateTransformer})),
-            DevTools.instrument()
-        )
-    )
+            DevTools.instrument(),
+        ),
+    );
 
     if (module.hot) {
         // Enable Webpack hot module replacement for reducers
         module.hot.accept('../reducers', () => {
-            const nextRootReducer = require('../reducers').default
-            store.replaceReducer(nextRootReducer)
-        })
+            const nextRootReducer = require('../reducers').default;
+            store.replaceReducer(nextRootReducer);
+        });
     }
 
-    return store
+    return store;
 }

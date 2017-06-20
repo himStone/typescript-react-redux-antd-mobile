@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux-immutable'
-// import { routerReducer } from 'react-router-redux'
-import customList from './customList'
+import { combineReducers } from 'redux-immutable';
+import { routerReducer } from 'react-router-redux';
+import customList from './customList';
 
 const rootReducer = combineReducers({
-	customList,
-	//routing: routerReducer
+  customList,
+  routing: routerReducer,
 });
 
-export default rootReducer
+export default rootReducer;

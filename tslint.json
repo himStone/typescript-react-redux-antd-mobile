@@ -1,4 +1,5 @@
 {
+  
   "extends": ["tslint-react"],
   "rules": {
     "align": [
@@ -59,7 +60,6 @@
     "no-switch-case-fall-through": false,
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
-    "no-unused-new": true,
     "no-unused-variable": [
       true,
       { "ignore-pattern": "^React$" }
@@ -102,7 +102,6 @@
       true,
       "allow-null-check"
     ],
-    "typedef": false,
     "typedef-whitespace": [
       true,
       {
@@ -137,7 +136,9 @@
       "check-type",
       "check-typecast"
     ],
+    "jsx-boolean-value": false,
     "jsx-no-lambda": false,
-    "jsx-no-string-ref": false
+    "jsx-no-string-ref": false,
+    "jsx-no-multiline-js": false
   }
 }

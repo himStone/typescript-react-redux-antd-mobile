@@ -46,20 +46,4 @@ config.module.rules[1].use =
 config.devtool = 'source-map';
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
  
-
-new WebpackDevServer(webpack(config), {
-    hot: true,
-    inline: true,
-    compress: true,
-    stats: {
-        chunks: false,
-        children: false,
-        colors: true,
-    },
-    proxy: {
-        '*.json': "http://localhost:8082"
-    },
-    historyApiFallback: true,
-}).listen(_port, _host, function() {
-    console.info('==> 🚧  Webpack development server running - %s', _localPublicPath);
-});
+module.exports = config;

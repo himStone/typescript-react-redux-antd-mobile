@@ -5,3 +5,4 @@ c.
 node_modules
 static
 npm-debug.log
+dist

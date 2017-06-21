@@ -21,7 +21,6 @@ const config = {
             'redux',
             'redux-thunk',
             'classnames',
-            'reqwest',
             'es6-promise',
             'immutable',
             ]

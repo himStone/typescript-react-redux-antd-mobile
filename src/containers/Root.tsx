@@ -1,9 +1,8 @@
-import * as React from "react"
-import { render } from 'react-dom'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import Home from './Home/'
-import CustomTheme from './CustomTheme/'
+import * as React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Home from './Home/';
+import CustomTheme from './CustomTheme/';
 
 export default ({ store }) => (
   <BrowserRouter>
